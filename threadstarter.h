@@ -12,7 +12,7 @@ public:
 signals:
 
 private slots:
-    void startSlave();
+    void startSlave(const QString &serialPort);
     void showRequest(const QString &s);
     void processError(const QString &s);
     void processTimeout(const QString &s);

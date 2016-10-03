@@ -33,6 +33,7 @@ void SlaveThread::startSlave(const QString &portName, int waitTimeout, const QSt
     if (!isRunning())
         start();
 }
+
 void SlaveThread::run()
 {
     bool currentPortNameChanged = false;
