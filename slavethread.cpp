@@ -56,7 +56,7 @@ void SlaveThread::run()
         if (currentPortNameChanged) {
             serial.close();
             serial.setPortName(currentPortName);
-
+            serial.setBaudRate(QSerialPort::Baud2400);
             if (!serial.open(QIODevice::ReadWrite)) {
                 emit error(tr("Can't open %1, error code %2")
                            .arg(portName).arg(serial.error()));

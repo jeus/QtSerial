@@ -41,10 +41,10 @@ void threadstarter::insertDatabase(const QString &json)
     QJsonDocument jsonResponse = QJsonDocument::fromJson(json.toUtf8());
     QJsonObject jsonObject = jsonResponse.object();
     QJsonArray jsonArray = jsonObject["Radon"].toArray();
-    QString sql = "INSERT INTO `radon`.`logs` (`radon`,`hum`,`temp`,`pres`) VALUES (%1,%2,%3,%4);";
+    QString sql = "INSERT INTO `radon`.`logs` (`radon`,`toler`,`hum`,`temp`,`pres`) VALUES (%1,%2,%3,%4,%5);";
     foreach (const QJsonValue & value, jsonArray) {
         QJsonObject obj = value.toObject();
-        sql = QString(sql).arg(obj["radon"].toInt()).arg(obj["hum"].toDouble()).arg(obj["temp"].toDouble()).arg(obj["pres"].toInt());
+        sql = QString(sql).arg(obj["radon"].toInt()).arg(obj["toler"].toInt()).arg(obj["hum"].toDouble()).arg(obj["temp"].toDouble()).arg(obj["pres"].toInt());
 
     }
          QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
